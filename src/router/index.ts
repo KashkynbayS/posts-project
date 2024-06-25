@@ -1,23 +1,47 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
-  ]
+   history: createWebHistory(import.meta.env.BASE_URL),
+   routes: [
+      {
+         path: '/sign-up',
+         name: 'SignUp',
+         component: () => import('@/views/SignUp.vue'),
+      },
+      {
+         path: '/sign-in',
+         name: 'SignIn',
+         component: () => import('@/views/SignIn.vue'),
+      },
+      {
+         path: '/feed',
+         name: 'Feed',
+         component: () => import('@/views/Feed.vue'),
+      },
+      {
+         path: '/content',
+         name: 'Content',
+         component: () => import('@/views/Content.vue'),
+      },
+      {
+         path: '/profile',
+         redirect: 'posts',
+         name: 'Profile',
+         component: () => import('@/views/Profile.vue'),
+         children: [
+            {
+               path: 'posts',
+               name: 'Posts',
+               component: () => import('@/views/Profile/Posts.vue'),
+            },
+            {
+               path: 'photos',
+               name: 'Photos',
+               component: () => import('@/views/Profile/Photos.vue'),
+            },
+         ],
+      },
+   ],
 })
 
 export default router
