@@ -15,5 +15,6 @@ module.exports = {
    },
    rules: {
       'vue/prop-types': 'off',
+      'vue/multi-word-component-names': 'off',
    },
 }
