@@ -14,6 +14,12 @@ module.exports = {
       ecmaVersion: 'latest',
    },
    rules: {
+      'prettier/prettier': [
+         'warn',
+         {
+            endOfLine: 'auto',
+         },
+      ],
       'vue/prop-types': 'off',
       'vue/multi-word-component-names': 'off',
    },
