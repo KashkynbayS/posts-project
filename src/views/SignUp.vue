@@ -24,7 +24,7 @@ const toggleShowPassword = () => {
 <template>
    <PageTemplate>
       <template #header>
-         <span><CloseIcon/></span>
+         <span><CloseIcon /></span>
          <h2>Sign Up</h2>
          <router-link to="/sign-in">Login</router-link>
       </template>
@@ -48,7 +48,7 @@ const toggleShowPassword = () => {
             />
             <span class="show-password" @click="toggleShowPassword">
                {{ showPassword ? 'Hide' : 'Show' }}
-            </span>         
+            </span>
          </div>
 
          <div class="buttons">
