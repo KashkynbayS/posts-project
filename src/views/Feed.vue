@@ -19,7 +19,7 @@ import { posts } from '@/mocks/posts'
          <SearchInput />
 
          <div class="posts">
-            <PostSmall v-for="post in posts" :key="post.title" :post="post" />
+            <PostSmall v-for="post in posts" :key="post.id" :post="post" />
          </div>
       </div>
    </PageTemplate>
