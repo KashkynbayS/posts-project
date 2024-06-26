@@ -57,7 +57,6 @@ const toggleShowPassword = () => {
       </form>
 
       <p v-if="error">{{ error }}</p>
-
    </PageTemplate>
 </template>
 
@@ -73,7 +72,6 @@ form {
    flex-direction: column;
    width: 100%;
    gap: 1rem;
-   padding-top: 2rem;
    flex-grow: 1;
 
    .form-item {
