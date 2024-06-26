@@ -2,6 +2,7 @@
 import PageTemplate from '@/layouts/PageTemplate.vue'
 
 import Post from '@/components/PostSmall.vue'
+import Search from '@/components/Search.vue'
 
 import { posts } from '@/mocks/posts'
 </script>
@@ -15,9 +16,7 @@ import { posts } from '@/mocks/posts'
       </template>
 
       <div id="main-content">
-         <div class="input-container">
-            <input type="text" placeholder="Search" />
-         </div>
+         <Search />
 
          <div class="posts">
             <Post v-for="post in posts" :key="post.title" :post="post" />
@@ -34,18 +33,6 @@ import { posts } from '@/mocks/posts'
    width: 100%;
    display: flex;
    flex-direction: column;
-
-   .input-container {
-      position: sticky;
-      position: -webkit-sticky;
-      top: 0;
-      padding-bottom: 1rem;
-      background-color: white;
-   }
-
-   input {
-      border-radius: 6.25rem;
-   }
 
    .posts {
       display: flex;
