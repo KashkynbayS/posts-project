@@ -4,20 +4,27 @@ import { useRouter } from 'vue-router'
 
 import PageTemplate from '@/layouts/PageTemplate.vue'
 
+import CloseIcon from '@/assets/images/close.svg'
+
 const name = ref('')
 const email = ref('')
 const password = ref('')
 const router = useRouter()
+const showPassword = ref(false)
 
 const handleRegister = () => {
    router.push('/login')
+}
+
+const toggleShowPassword = () => {
+   showPassword.value = !showPassword.value
 }
 </script>
 
 <template>
    <PageTemplate>
       <template #header>
-         <span>X</span>
+         <span><CloseIcon/></span>
          <h2>Sign Up</h2>
          <router-link to="/sign-in">Login</router-link>
       </template>
@@ -34,17 +41,19 @@ const handleRegister = () => {
          <div class="form-item">
             <input
                id="password"
-               type="password"
+               :type="showPassword ? 'text' : 'password'"
                v-model="password"
                required
                placeholder="Password"
             />
-            <span class="show-password">Show</span>
+            <span class="show-password" @click="toggleShowPassword">
+               {{ showPassword ? 'Hide' : 'Show' }}
+            </span>         
          </div>
 
          <div class="buttons">
             <button class="primary" type="submit">Sign Up</button>
-            <button class="secondary" type="submit">Forgot your password?</button>
+            <button class="secondary">Forgot your password?</button>
          </div>
       </form>
 

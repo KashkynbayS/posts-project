@@ -11,6 +11,7 @@ const password = ref('')
 const error = ref('')
 const router = useRouter()
 const authStore = useAuthStore()
+const showPassword = ref(false)
 
 const handleLogin = () => {
    if (authStore.login(email.value, password.value)) {
@@ -18,6 +19,10 @@ const handleLogin = () => {
    } else {
       error.value = 'Invalid email or password'
    }
+}
+
+const toggleShowPassword = () => {
+   showPassword.value = !showPassword.value
 }
 </script>
 
@@ -35,12 +40,14 @@ const handleLogin = () => {
          <div class="form-item">
             <input
                id="password"
-               type="password"
+               :type="showPassword ? 'text' : 'password'"
                v-model="password"
                required
                placeholder="Password"
             />
-            <span class="show-password">Show</span>
+            <span class="show-password" @click="toggleShowPassword">
+               {{ showPassword ? 'Hide' : 'Show' }}
+            </span>
          </div>
 
          <div class="buttons">
