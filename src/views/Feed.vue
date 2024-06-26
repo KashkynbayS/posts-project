@@ -1,8 +1,8 @@
 <script setup>
 import PageTemplate from '@/layouts/PageTemplate.vue'
 
-import Post from '@/components/PostSmall.vue'
-import Search from '@/components/Search.vue'
+import PostSmall from '@/components/PostSmall.vue'
+import SearchInput from '@/components/SearchInput.vue'
 
 import { posts } from '@/mocks/posts'
 </script>
@@ -16,10 +16,10 @@ import { posts } from '@/mocks/posts'
       </template>
 
       <div id="main-content">
-         <Search />
+         <SearchInput />
 
          <div class="posts">
-            <Post v-for="post in posts" :key="post.title" :post="post" />
+            <PostSmall v-for="post in posts" :key="post.title" :post="post" />
          </div>
       </div>
    </PageTemplate>
