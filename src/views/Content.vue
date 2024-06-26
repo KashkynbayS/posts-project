@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
 import { usePostStore } from '@/stores/postStore'
 
@@ -9,14 +10,19 @@ import SearchInput from '@/components/SearchInput.vue'
 import PostLarge from '@/components/PostLarge.vue'
 
 const postStore = usePostStore()
+const router = useRouter()
 
 const post = computed(() => postStore.currentPost)
+
+const goBack = () => {
+   router.go(-1)
+}
 </script>
 
 <template>
    <PageTemplate>
       <template #header>
-         <router-link to="/feed">Back</router-link>
+         <router-link to="" @click="goBack">Back</router-link>
          <h2 id="login-h2">Content</h2>
          <router-link to="">Filter</router-link>
       </template>

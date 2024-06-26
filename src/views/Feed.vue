@@ -33,6 +33,7 @@ import { posts } from '@/mocks/posts'
    width: 100%;
    display: flex;
    flex-direction: column;
+   height: 100vh;
 
    .posts {
       display: flex;
