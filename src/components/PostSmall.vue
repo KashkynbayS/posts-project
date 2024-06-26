@@ -1,15 +1,26 @@
 <script setup>
 import { defineProps } from 'vue'
+import { useRouter } from 'vue-router'
+
+import { usePostStore } from '@/stores/postStore'
 
 const props = defineProps({
    post: Object,
 })
 
+const postStore = usePostStore()
+const router = useRouter()
+
 const { image, title, description, countdown } = props.post
+
+const openPost = () => {
+   postStore.setCurrentPost(props.post)
+   router.push(`/content/${props.post.id}`)
+}
 </script>
 
 <template>
-   <div class="post">
+   <div class="post" @click="openPost">
       <div class="left-side">
          <img :src="image" alt="post" />
       </div>
