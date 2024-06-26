@@ -19,6 +19,10 @@ h2 {
    font-weight: 600;
 }
 
+h3 {
+   font-size: 1rem;
+}
+
 input {
    width: 100%;
    background-color: $gray;
@@ -32,8 +36,7 @@ input {
 input::placeholder {
    font-size: 1rem;
    font-weight: 500;
-   color: $input-placeholder;
-   // padding: 1rem;
+   color: $gray-bd;
 }
 
 button {

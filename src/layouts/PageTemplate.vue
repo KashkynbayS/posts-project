@@ -53,7 +53,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 var(--space-4) 0 var(--space-4);
+      margin: 2rem 0 0 0;
    }
 
    &__footer {
