@@ -25,9 +25,11 @@ import SegmentContainer from '@/components/SegmentControl.vue'
             </div>
          </div>
 
-         <SegmentContainer />
+         <div class="posts-photos-container">
+            <SegmentContainer />
 
-         <router-view></router-view>
+            <router-view></router-view>
+         </div>
       </div>
    </PageTemplate>
 </template>
@@ -53,6 +55,8 @@ import SegmentContainer from '@/components/SegmentControl.vue'
    display: flex;
    flex-direction: column;
    gap: 1.5rem;
+   height: 100vh;
+   overflow-y: hidden;
 
    .user-data {
       display: flex;
@@ -82,6 +86,12 @@ import SegmentContainer from '@/components/SegmentControl.vue'
             font-weight: 600;
          }
       }
+   }
+
+   .posts-photos-container {
+      position: relative;
+      flex: 1;
+      overflow-y: auto;
    }
 }
 </style>
