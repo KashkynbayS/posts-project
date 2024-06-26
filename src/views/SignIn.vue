@@ -6,17 +6,17 @@ import { useAuthStore } from '@/stores/auth.js'
 
 import PageTemplate from '@/layouts/PageTemplate.vue'
 
-const username = ref('')
+const email = ref('')
 const password = ref('')
 const error = ref('')
 const router = useRouter()
 const authStore = useAuthStore()
 
 const handleLogin = () => {
-   if (authStore.login(username.value, password.value)) {
+   if (authStore.login(email.value, password.value)) {
       router.push('/feed')
    } else {
-      error.value = 'Invalid username or password'
+      error.value = 'Invalid email or password'
    }
 }
 </script>
@@ -28,27 +28,64 @@ const handleLogin = () => {
       </template>
 
       <form @submit.prevent="handleLogin">
-         <div>
-            <label for="username">Username</label>
-            <input id="username" v-model="username" required />
+         <div class="form-item">
+            <input id="email" v-model="email" required placeholder="Email" />
          </div>
-         <div>
-            <label for="password">Password</label>
-            <input id="password" type="password" v-model="password" required />
+
+         <div class="form-item">
+            <input
+               id="password"
+               type="password"
+               v-model="password"
+               required
+               placeholder="Password"
+            />
+            <span class="show-password">Show</span>
          </div>
-         <button type="submit">Login</button>
+
+         <div class="buttons">
+            <button class="primary" type="submit">Log In</button>
+            <button class="secondary">Forgot your password?</button>
+         </div>
       </form>
+
       <p v-if="error">{{ error }}</p>
+
    </PageTemplate>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@/assets/variables.scss';
+
 #login-h2 {
    text-align: center;
 }
+
 form {
-   label {
-      font-size: 50px;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   gap: 1rem;
+   padding-top: 2rem;
+   flex-grow: 1;
+
+   .form-item {
+      width: 100%;
+
+      .show-password {
+         position: absolute;
+         right: 0;
+         margin: 1rem 2rem 1rem 1rem;
+         cursor: pointer;
+         font-size: 1rem;
+         color: $green;
+      }
+   }
+
+   .buttons {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
    }
 }
 </style>
