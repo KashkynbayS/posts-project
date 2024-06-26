@@ -33,6 +33,8 @@
 
    &__header > :nth-child(1) {
       text-align: left;
+      font-size: 1rem;
+      font-weight: 500;
    }
 
    &__header > :nth-child(2) {

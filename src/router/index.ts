@@ -29,7 +29,7 @@ const router = createRouter({
       },
       {
          path: '/profile',
-         redirect: 'posts',
+         redirect: 'profile/posts',
          name: 'Profile',
          component: () => import('@/views/Profile.vue'),
          children: [
