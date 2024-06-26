@@ -6,12 +6,14 @@ import { useAuthStore } from '@/stores/auth.js'
 
 import PageTemplate from '@/layouts/PageTemplate.vue'
 
+import TextInput from '@/components/TextInput.vue'
+import PasswordInput from '@/components/PasswordInput.vue'
+
 const email = ref('')
 const password = ref('')
 const error = ref('')
 const router = useRouter()
 const authStore = useAuthStore()
-const showPassword = ref(false)
 
 const handleLogin = () => {
    if (authStore.login(email.value, password.value)) {
@@ -19,10 +21,6 @@ const handleLogin = () => {
    } else {
       error.value = 'Invalid email or password'
    }
-}
-
-const toggleShowPassword = () => {
-   showPassword.value = !showPassword.value
 }
 </script>
 
@@ -33,22 +31,8 @@ const toggleShowPassword = () => {
       </template>
 
       <form @submit.prevent="handleLogin">
-         <div class="form-item">
-            <input id="email" v-model="email" required placeholder="Email" />
-         </div>
-
-         <div class="form-item">
-            <input
-               id="password"
-               :type="showPassword ? 'text' : 'password'"
-               v-model="password"
-               required
-               placeholder="Password"
-            />
-            <span class="show-password" @click="toggleShowPassword">
-               {{ showPassword ? 'Hide' : 'Show' }}
-            </span>
-         </div>
+         <TextInput id="email" v-model="email" required placeholder="Email" />
+         <PasswordInput id="password" v-model="password" required placeholder="Password" />
 
          <div class="buttons">
             <button class="primary" type="submit">Log In</button>
@@ -73,19 +57,6 @@ form {
    width: 100%;
    gap: 1rem;
    flex-grow: 1;
-
-   .form-item {
-      width: 100%;
-
-      .show-password {
-         position: absolute;
-         right: 0;
-         margin: 1rem 2rem 1rem 1rem;
-         cursor: pointer;
-         font-size: 1rem;
-         color: $green;
-      }
-   }
 
    .buttons {
       margin-top: auto;
