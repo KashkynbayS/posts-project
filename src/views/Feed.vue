@@ -1,6 +1,8 @@
 <script setup>
 import PageTemplate from '@/layouts/PageTemplate.vue'
 
+import Post from '@/components/PostSmall.vue'
+
 import { posts } from '@/mocks/posts'
 </script>
 
@@ -18,20 +20,7 @@ import { posts } from '@/mocks/posts'
          </div>
 
          <div class="posts">
-            <div class="post" v-for="post in posts" :key="post.title">
-               <div class="left-side">
-                  <img :src="post.image" alt="post" />
-               </div>
-               <div class="right-side">
-                  <div class="title">
-                     <h3>{{ post.title }}</h3>
-                     <span>{{ post.countdown }}</span>
-                  </div>
-                  <div class="description">
-                     <p>{{ post.description }}</p>
-                  </div>
-               </div>
-            </div>
+            <Post v-for="post in posts" :key="post.title" :post="post" />
          </div>
       </div>
    </PageTemplate>
@@ -62,37 +51,6 @@ import { posts } from '@/mocks/posts'
       display: flex;
       flex-direction: column;
       gap: 1rem;
-
-      .post {
-         display: flex;
-         gap: 1rem;
-
-         .left-side {
-            img {
-               width: 50px;
-               height: 50px;
-               border-radius: 8px;
-            }
-         }
-
-         .right-side {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            width: 100%;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid $gray-e8;
-
-            .title {
-               display: flex;
-               justify-content: space-between;
-
-               span {
-                  color: $gray-bd;
-               }
-            }
-         }
-      }
    }
 }
 </style>
