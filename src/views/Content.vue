@@ -8,6 +8,7 @@ import PageTemplate from '@/layouts/PageTemplate.vue'
 
 import SearchInput from '@/components/SearchInput.vue'
 import PostLarge from '@/components/PostLarge.vue'
+import FooterNavigation from '@/components/FooterNavigation.vue'
 
 const postStore = usePostStore()
 const router = useRouter()
@@ -34,6 +35,10 @@ const goBack = () => {
             <PostLarge :post="post" />
          </div>
       </div>
+
+      <template #footer>
+         <FooterNavigation />
+      </template>
    </PageTemplate>
 </template>
 

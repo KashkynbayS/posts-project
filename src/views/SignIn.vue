@@ -49,6 +49,8 @@ const handleLogin = () => {
 
 #login-h2 {
    text-align: center;
+   font-size: 1.875rem;
+   font-weight: 600;
 }
 
 form {

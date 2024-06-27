@@ -1,7 +1,10 @@
 <script setup>
 import PageTemplate from '@/layouts/PageTemplate.vue'
-import User from '@/assets/images/user.png'
+
 import SegmentContainer from '@/components/SegmentControl.vue'
+import FooterNavigation from '@/components/FooterNavigation.vue'
+
+import User from '@/assets/images/user.png'
 </script>
 
 <template>
@@ -31,6 +34,10 @@ import SegmentContainer from '@/components/SegmentControl.vue'
             <router-view></router-view>
          </div>
       </div>
+
+      <template #footer>
+         <FooterNavigation />
+      </template>
    </PageTemplate>
 </template>
 
